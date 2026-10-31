@@ -7,8 +7,13 @@ import java.util.List;
 @RestController
 
 public class ToDoController {
-    @GetMapping("/")
-    public List<ToDoEntry> index() {
-        return List.of(new ToDoEntry("M1"), new ToDoEntry("M2"),new ToDoEntry("M3"),new ToDoEntry("M4"));
+    record VocabEntry(int id,String vocabulary,String translation) {}
+
+    @GetMapping("/Vocabs")
+    public List<VocabEntry> index() {
+        return List.of( new VocabEntry(1,"house","Haus"),
+                        new VocabEntry(2,"dog","Hund"),
+                        new VocabEntry(3,"Cat","Katze"),
+                        new VocabEntry(4,"Rat","Ratte"));
     }
 }
